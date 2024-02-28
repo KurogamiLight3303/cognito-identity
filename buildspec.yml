@@ -16,7 +16,7 @@ phases:
 
   build:
     commands:
-      - cd $PROJECT
+      - cd CognitoPOC.IdentityApi
       - echo Build Started at `date`
       - dotnet build -c Release
       - dotnet publish -c Release -o ./bin/Release/net7.0/publish --self-contained false

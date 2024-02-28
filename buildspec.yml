@@ -1,0 +1,37 @@
+version: 0.2
+
+env:
+  variables:
+    DOTNET_CORE_RUNTIME: 6.0
+phases:
+  install:
+    commands:
+      - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel LTS
+  pre_build:
+    commands:
+      - dotnet --info
+      - echo Restore Started at `date`
+      - dotnet restore
+      - aws ecr get-login-password | docker login --username AWS --password-stdin $ACCOUNT.dkr.ecr.$REGION.amazonaws.com
+
+  build:
+    commands:
+      - cd $PROJECT
+      - echo Build Started at `date`
+      - dotnet build -c Release
+      - dotnet publish -c Release -o ./bin/Release/net7.0/publish --self-contained false
+      - docker build -t $REPOSITORY:latest .
+      - docker tag $REPOSITORY:latest $ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$REPOSITORY:latest
+
+  post_build:
+    commands:
+      - echo Publish Started at `date`
+      - docker push $ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$REPOSITORY:latest
+      - IMAGE_NAME=`docker images --filter="dangling=false" --format "{{.Repository}}@{{.Digest}}" $ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$REPOSITORY`
+      - echo $IMAGE_NAME
+      - aws lambda update-function-code --function-name=$FUNCTION --image-uri=$IMAGE_NAME
+artifacts:
+  files:
+    - '**/*'
+  base-directory: '$PROJECT/bin/Release/net7.0/publish'
+  name: asp-server-$(date +%Y-%m-%d)

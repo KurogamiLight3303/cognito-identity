@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CognitoPOC.Domain.Common\CognitoPOC.Domain.Common.csproj" />
+      <ProjectReference Include="..\CognitoPOC.Domain\CognitoPOC.Domain.csproj" />
+      <ProjectReference Include="..\CognitoPOC.Infrastructure.Configurations\CognitoPOC.Infrastructure.Configurations.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Elasticsearch.Net" Version="6.8.8" />
+        <PackageReference Include="NEST" Version="6.8.8" />
+        <PackageReference Include="NEST.JsonNetSerializer" Version="6.8.8" />
+        <PackageReference Include="StackExchange.Redis" Version="2.6.122" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CognitoPOC.IdentityApi</name>
+    </assembly>
+    <members>
+        <member name="T:CognitoPOC.IdentityApi.Controllers.AuthenticationController">
+            <summary>
+            Authentication Workflows
+            </summary>
+        </member>
+        <member name="M:CognitoPOC.IdentityApi.Controllers.AuthenticationController.#ctor(Mediator.IMediator)">
+            <summary>
+            Main Constructor
+            </summary>
+            <param name="mediator">Mediator Service</param>
+        </member>
+        <member name="T:CognitoPOC.IdentityApi.Controllers.DeviceController">
+            <summary>
+            Authentication Workflows
+            </summary>
+        </member>
+        <member name="M:CognitoPOC.IdentityApi.Controllers.DeviceController.#ctor(Mediator.IMediator)">
+            <summary>
+            Main Constructor
+            </summary>
+            <param name="mediator">Mediator Service</param>
+        </member>
+        <member name="T:CognitoPOC.IdentityApi.Controllers.MfaController">
+            <summary>
+            Authentication Workflows
+            </summary>
+        </member>
+        <member name="M:CognitoPOC.IdentityApi.Controllers.MfaController.#ctor(Mediator.IMediator)">
+            <summary>
+            Main Constructor
+            </summary>
+            <param name="mediator">Mediator Service</param>
+        </member>
+        <member name="T:CognitoPOC.IdentityApi.Controllers.PasswordController">
+            <summary>
+            Password Workflows
+            </summary>
+        </member>
+        <member name="M:CognitoPOC.IdentityApi.Controllers.PasswordController.#ctor(Mediator.IMediator)">
+            <summary>
+            Main Constructor
+            </summary>
+            <param name="mediator">Mediator Service</param>
+        </member>
+        <member name="T:CognitoPOC.IdentityApi.Controllers.ProfileController">
+            <summary>
+            Profile Workflows
+            </summary>
+        </member>
+        <member name="M:CognitoPOC.IdentityApi.Controllers.ProfileController.#ctor(Mediator.IMediator)">
+            <summary>
+            Main Constructor
+            </summary>
+            <param name="mediator">Mediator Service</param>
+        </member>
+        <member name="T:CognitoPOC.IdentityApi.LambdaEntryPoint">
+            <summary>
+            EntryPoint for AWS Lambda
+            </summary>
+        </member>
+        <member name="M:CognitoPOC.IdentityApi.LambdaEntryPoint.Init(Microsoft.AspNetCore.Hosting.IWebHostBuilder)">
+            <summary>
+            The builder has configuration, logging and Amazon API Gateway already configured. The startup class
+            needs to be configured in this method using the UseStartup() method.
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:CognitoPOC.IdentityApi.LambdaEntryPoint.Init(Microsoft.Extensions.Hosting.IHostBuilder)">
+            <summary>
+            Use this override to customize the services registered with the IHostBuilder. 
+            
+            It is recommended not to call ConfigureWebHostDefaults to configure the IWebHostBuilder inside this method.
+            Instead customize the IWebHostBuilder in the Init(IWebHostBuilder) overload.
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:CognitoPOC.IdentityApi.LambdaStartUp">
+            <summary>
+            StartUp for AWS Lambda
+            </summary>
+        </member>
+        <member name="M:CognitoPOC.IdentityApi.LambdaStartUp.#ctor(Microsoft.Extensions.Logging.ILoggingBuilder)">
+            <summary>
+            Start Up Services
+            </summary>
+        </member>
+        <member name="M:CognitoPOC.IdentityApi.LambdaStartUp.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Services
+            </summary>
+            <param name="services">Service Collection</param>
+        </member>
+        <member name="M:CognitoPOC.IdentityApi.LambdaStartUp.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configure Application Start
+            </summary>
+            <param name="app">Application</param>
+            <param name="env">Environment</param>
+        </member>
+    </members>
+</doc>
